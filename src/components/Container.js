@@ -23,5 +23,29 @@ class Container extends Component {
       )
       .catch((err) => console.log(err));
   }
+  sortByName = () => {
+    const filtereds = this.state.filteredEmployees;
+    if (this.state.order === "asc") {
+      const sorteds = filtereds.sort((a, b) =>
+        a.name.first > b.name.first ? 1 : -1
+      );
+      console.log(sorteds);
+
+      this.setState({
+        filteredEmployees: sorteds,
+        order: "desc",
+      });
+    } else {
+      const sorteds = filtereds.sort((a, b) =>
+        a.name.first > b.name.first ? -1 : 1
+      );
+      console.log(sorteds);
+
+      this.setState({
+        filteredEmployees: sorteds,
+        order: "asc",
+      });
+    }
+  };
 }
 export default Container;
