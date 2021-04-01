@@ -68,5 +68,20 @@ class Container extends Component {
       )
       .catch((err) => console.log(err));
   };
+  handleSearch = (event) => {
+    event.preventDefault();
+    if (!this.state.search) {
+      alert("Enter a name");
+    }
+    const { employees, search } = this.state;
+
+    const filteredEmployees = employees.filter((employee) =>
+      employee.name.first.toLowerCase().includes(search.toLowerCase())
+    );
+
+    this.setState({
+      filteredEmployees,
+    });
+  };
 }
 export default Container;
