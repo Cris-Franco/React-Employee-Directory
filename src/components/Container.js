@@ -58,5 +58,15 @@ class Container extends Component {
       filteredEmployees,
     });
   };
+  employeeSearch = () => {
+    API.getUsers()
+      .then((res) =>
+        this.setState({
+          filteredEmployees: res.data.results,
+          employees: res.data.results,
+        })
+      )
+      .catch((err) => console.log(err));
+  };
 }
 export default Container;
