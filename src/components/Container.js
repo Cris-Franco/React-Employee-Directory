@@ -83,5 +83,20 @@ class Container extends Component {
       filteredEmployees,
     });
   };
+  render() {
+    return (
+      <div>
+        <SearchBox
+          employee={this.state.employees}
+          handleSearch={this.handleSearch}
+          handleInputChange={this.handleInputChange}
+        />
+        <TableData
+          results={this.state.filteredEmployees}
+          sortByName={this.sortByName}
+        />
+      </div>
+    );
+  }
 }
 export default Container;
