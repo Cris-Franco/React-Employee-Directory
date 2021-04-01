@@ -47,5 +47,16 @@ class Container extends Component {
       });
     }
   };
+  handleInputChange = (event) => {
+    const employees = this.state.employees;
+    const UserInput = event.target.value;
+    const filteredEmployees = employees.filter(
+      (employee) =>
+        employee.name.first.toLowerCase().indexOf(UserInput.toLowerCase()) > -1
+    );
+    this.setState({
+      filteredEmployees,
+    });
+  };
 }
 export default Container;
